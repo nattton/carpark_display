@@ -2,6 +2,7 @@ import 'package:carpark_display/presentation/bloc/gate_bloc.dart';
 import 'package:carpark_display/presentation/widget/exit_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fullscreen_window/fullscreen_window.dart';
 
 class ExitPage extends StatefulWidget {
   const ExitPage({super.key});
@@ -18,11 +19,13 @@ class _ExitPageState extends State<ExitPage> {
     super.initState();
     _gateBloc = context.read<GateBloc>()..add(const Load());
     _gateBloc.add(const Subscribe());
+    FullScreenWindow.setFullScreen(true);
   }
 
   @override
   void dispose() {
     _gateBloc.add(const Unsubscribe());
+    FullScreenWindow.setFullScreen(false);
     super.dispose();
   }
 
