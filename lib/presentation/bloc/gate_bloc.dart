@@ -5,9 +5,8 @@ import 'dart:io';
 import 'package:carpark_display/common/config/constant.dart';
 import 'package:carpark_display/common/model/delayed_result.dart';
 import 'package:carpark_display/data/model/gate_log.dart';
-import 'package:carpark_display/data/service/api_service.dart';
 import 'package:carpark_display/domain/model/gate_model.dart';
-import 'package:dio/dio.dart';
+import 'package:carpark_display/domain/repository/api_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,12 +18,12 @@ part 'gate_state.dart';
 const wsUrl = '$kHostWS/ws';
 
 class GateBloc extends Bloc<GateEvent, GateState> {
-  final Dio _dio;
+  final ApiRepository _apiRepository;
 
   late WebSocket channel;
 
-  GateBloc({required Dio dio})
-      : _dio = dio,
+  GateBloc({required ApiRepository apiRepository})
+      : _apiRepository = apiRepository,
         super(const GateState(loadingResult: DelayedResult.idle())) {
     on<Load>(_onLoad);
     on<Subscribe>(_onSubscribe);
@@ -37,7 +36,7 @@ class GateBloc extends Bloc<GateEvent, GateState> {
   FutureOr<void> _onLoad(Load event, Emitter<GateState> emit) async {
     try {
       emit(state.copyWith(loadingResult: const DelayedResult.inProgress()));
-      final lastGate = await ApiService(_dio).getLastGate();
+      final lastGate = await _apiRepository.getLastGate();
       emit(state.copyWith(gateIn: lastGate.gateIn, gateOut: lastGate.gateOut));
       emit(state.copyWith(loadingResult: const DelayedResult.idle()));
     } on Exception catch (e) {

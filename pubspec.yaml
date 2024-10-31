@@ -43,6 +43,9 @@ dependencies:
   equatable: ^2.0.5
   http: ^1.2.2
   web_socket_channel: ^3.0.1
+  get_it: ^8.0.2
+  shared_preferences: ^2.3.2
+  hexcolor: ^3.0.1
 
 dev_dependencies:
   flutter_test:
