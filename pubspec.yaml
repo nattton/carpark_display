@@ -43,7 +43,6 @@ dependencies:
   equatable: ^2.0.5
   http: ^1.2.2
   web_socket_channel: ^3.0.1
-  fullscreen_window: ^1.1.0
 
 dev_dependencies:
   flutter_test:
