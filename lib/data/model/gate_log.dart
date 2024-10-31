@@ -1,4 +1,5 @@
-import 'package:carpark_display/domain/model/member.dart';
+import 'package:carpark_display/data/model/member.dart';
+import 'package:carpark_display/domain/model/gate_model.dart';
 
 class GateLog {
   final int id;
@@ -44,4 +45,12 @@ class GateLog {
               member: Member.fromJson(member)),
         _ => throw const FormatException('GateLog: format error')
       };
+
+  GateModel toGateModel() {
+    return GateModel(
+        id: id,
+        gateName: gateName,
+        plateNumber: plateNumber,
+        memberId: memberId);
+  }
 }

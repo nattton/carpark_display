@@ -19,7 +19,7 @@ final class Unsubscribe extends GateEvent {
 }
 
 class GateInChanged extends GateEvent {
-  final GateLog gateIn;
+  final GateModel gateIn;
   const GateInChanged({required this.gateIn});
 
   @override
@@ -27,7 +27,7 @@ class GateInChanged extends GateEvent {
 }
 
 class GateOutChanged extends GateEvent {
-  final GateLog gateOut;
+  final GateModel gateOut;
   const GateOutChanged({required this.gateOut});
 
   @override

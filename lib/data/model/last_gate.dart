@@ -1,3 +1,5 @@
+import 'package:carpark_display/domain/model/last_gate_model.dart';
+
 import 'gate_log.dart';
 
 class LastGate {
@@ -23,4 +25,9 @@ class LastGate {
               gateOut: GateLog.fromJson(gateOut)),
         _ => throw const FormatException('LastGate: format error')
       };
+
+  LastGateModel toLastGateModel() {
+    return LastGateModel(
+        gateIn: gateIn.toGateModel(), gateOut: gateOut.toGateModel());
+  }
 }

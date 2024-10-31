@@ -1,10 +1,10 @@
-import 'package:carpark_display/domain/model/gate_log.dart';
+import 'package:carpark_display/domain/model/gate_model.dart';
 import 'package:flutter/material.dart';
 
 class EntranceDisplay extends StatelessWidget {
   const EntranceDisplay({super.key, required this.gateLog});
 
-  final GateLog gateLog;
+  final GateModel gateLog;
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +14,9 @@ class EntranceDisplay extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('ทางเข้า'),
-        backgroundColor: Colors.blue[800],
+        backgroundColor: Colors.black,
       ),
-      backgroundColor: Colors.blue[300],
+      backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Stack(
@@ -28,7 +28,7 @@ class EntranceDisplay extends StatelessWidget {
                   gateLog.memberId == 0
                       ? "Visitor กรุณาลงทะเบียน"
                       : "Welcome ยินดีต้อนรับ",
-                  style: TextStyle(fontSize: fontSize),
+                  style: TextStyle(fontSize: fontSize, color: Colors.red),
                 )),
             Padding(
               padding: EdgeInsets.only(top: height / 4),
@@ -36,7 +36,7 @@ class EntranceDisplay extends StatelessWidget {
                   fit: BoxFit.fill,
                   child: Text(
                     gateLog.plateNumber,
-                    style: TextStyle(fontSize: fontSize),
+                    style: TextStyle(fontSize: fontSize, color: Colors.red),
                   )),
             ),
           ],

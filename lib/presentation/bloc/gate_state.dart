@@ -2,8 +2,8 @@
 part of 'gate_bloc.dart';
 
 class GateState extends Equatable {
-  final GateLog? gateIn;
-  final GateLog? gateOut;
+  final GateModel? gateIn;
+  final GateModel? gateOut;
   final DelayedResult<String> loadingResult;
 
   const GateState({this.gateIn, this.gateOut, required this.loadingResult});
@@ -12,8 +12,8 @@ class GateState extends Equatable {
   List<Object?> get props => [gateIn, gateOut];
 
   GateState copyWith({
-    GateLog? gateIn,
-    GateLog? gateOut,
+    GateModel? gateIn,
+    GateModel? gateOut,
     DelayedResult<String>? loadingResult,
   }) {
     return GateState(
