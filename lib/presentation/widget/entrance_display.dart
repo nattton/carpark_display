@@ -26,9 +26,9 @@ class EntranceDisplay extends StatelessWidget {
             FittedBox(
                 fit: BoxFit.fill,
                 child: Text(
-                  gateLog.memberId == 0
-                      ? "Visitor กรุณาลงทะเบียน"
-                      : "Welcome ยินดีต้อนรับ",
+                  GetIt.I
+                      .get<AppService>()
+                      .getEntryValue(memberType: gateLog.memberType),
                   style: TextStyle(
                       fontSize: fontSize,
                       color: GetIt.I.get<AppService>().fontColor),

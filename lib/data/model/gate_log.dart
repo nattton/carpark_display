@@ -48,9 +48,11 @@ class GateLog {
 
   GateModel toGateModel() {
     return GateModel(
-        id: id,
-        gateName: gateName,
-        plateNumber: plateNumber,
-        memberId: memberId);
+      id: id,
+      gateName: gateName,
+      plateNumber: plateNumber,
+      memberId: memberId,
+      memberType: memberId == 0 && member != null ? "visitor" : member!.type,
+    );
   }
 }

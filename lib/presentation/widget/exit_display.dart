@@ -26,9 +26,9 @@ class ExitDisplay extends StatelessWidget {
             FittedBox(
                 fit: BoxFit.fill,
                 child: Text(
-                  gateLog.memberId == 0
-                      ? "Visitor กรุณาคืนบัตรจอดรถ"
-                      : "ขอให้เดินทางโดยสวัสดิภาพ",
+                  GetIt.I
+                      .get<AppService>()
+                      .getExitValue(memberType: gateLog.memberType),
                   style: TextStyle(
                       fontSize: fontSize,
                       color: GetIt.I.get<AppService>().fontColor),
