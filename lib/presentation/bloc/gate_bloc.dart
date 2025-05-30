@@ -58,7 +58,7 @@ class GateBloc extends Bloc<GateEvent, GateState> {
     }
   }
 
-  initWebSocketChannelConnection() async {
+  Future<void> initWebSocketChannelConnection() async {
     WebSocketChannel channel = WebSocketChannel.connect(Uri.parse(wsUrl));
     channel.stream.listen((streamData) {
       _updateStream(streamData);
@@ -87,7 +87,7 @@ class GateBloc extends Bloc<GateEvent, GateState> {
     initWebSocketConnection();
   }
 
-  broadcastNotifications() {
+  void broadcastNotifications() {
     channel.listen((streamData) {
       _updateStream(streamData);
     }, onDone: () {

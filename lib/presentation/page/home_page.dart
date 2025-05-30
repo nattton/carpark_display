@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  openEntrancePage() {
+  void openEntrancePage() {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => const EntrancePage(),
@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  openExitPage() {
+  void openExitPage() {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => const ExitPage(),
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  openSettingPage() {
+  void openSettingPage() {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => const SettingPage(),
